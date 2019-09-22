@@ -11,18 +11,15 @@ public class TaskTest {
 
     private Task task;
 
-
     @Before
     public void prepareTestFixture() {
         task = new Task();
     }
 
-
     @After
     public void clearTestFixture() {
         task = null;
     }
-
 
     @Test(expected = NullPointerException.class)
     public void testGetSortedArrayThrowsNPE() {

@@ -9,6 +9,13 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <properties>
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
@@ -24,20 +31,33 @@
             <scope>test</scope>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.openjdk.jmh</groupId>-->
-            <!--<artifactId>jmh-core</artifactId>-->
-            <!--<version>${jmh.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.openjdk.jmh</groupId>-->
-            <!--<artifactId>jmh-generator-annprocess</artifactId>-->
-            <!--<version>${jmh.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+            <scope>test</scope>
+        </dependency>
 
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.mp911de.microbenchmark-runner</groupId>
+            <artifactId>microbenchmark-runner-junit5</artifactId>
+            <version>0.2.0.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -135,6 +155,27 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>2.22.0</version>-->
+<!--                <configuration>-->
+<!--                    <argLine>-->
+<!--                        &#45;&#45;illegal-access=permit-->
+<!--                    </argLine>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-failsafe-plugin</artifactId>-->
+<!--                <version>2.22.0</version>-->
+<!--                <configuration>-->
+<!--                    <argLine>-->
+<!--                        &#45;&#45;illegal-access=permit-->
+<!--                    </argLine>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
         </plugins>
     </build>

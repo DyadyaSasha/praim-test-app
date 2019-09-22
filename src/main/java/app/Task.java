@@ -16,21 +16,26 @@ public class Task {
 
     /**
      * Вывод отсортированного массива чётных чисел из входного значения строки
-     * @param input
-     *        строка, представляющие целые числа, разделённые ";",
-     *        строка должна содержать хотя бы одно целое число,
-     *        строка не должна заканчиваться символом разделителя ";"
+     *
+     * @param input строка, представляющие целые числа, разделённые ";",
+     *              строка должна содержать хотя бы одно целое число,
+     *              строка не должна заканчиваться символом разделителя ";"
      * @return отсортированный массив целых чётных чисел
-     * @throws NullPointerException
-     *         если {@code input} ссылается на null
+     * @throws NullPointerException если {@code input} ссылается на null
      * @since 1.0
      */
-    public int[] getSortedArray(final String input) throws NullPointerException{
+
+
+    public int[] getSortedArray(final String input) throws NullPointerException {
+
+        if(input.equals("")){
+            throw new EmptyStringException();
+        }
 
         char[] charArray;
         try {
             charArray = getValueFromString(input);
-        } catch (NoSuchFieldException | IllegalAccessException e){
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             return null;
         }
 
@@ -42,7 +47,7 @@ public class Task {
         for (int i = 0; i < numbersCount; i++) {
 
             boolean isNegative = charArray[currentPositionInArray] == '-';
-            if (isNegative){
+            if (isNegative) {
                 currentPositionInArray++;
             }
 
@@ -55,7 +60,7 @@ public class Task {
             }
             currentPositionInArray += 1;
 
-            if (isNegative){
+            if (isNegative) {
                 number = -number;
             }
 
