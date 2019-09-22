@@ -26,4 +26,9 @@ public class TaskTest {
         task.getSortedArray(null);
     }
 
+    @Test(expected = EmptyStringException.class)
+    public void testGetSortedArrayThrowsEmptyStringException() {
+        task.getSortedArray("");
+    }
+
 }
